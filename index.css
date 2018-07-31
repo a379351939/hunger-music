@@ -1,0 +1,294 @@
+/*reset*/
+* {margin: 0; padding: 0; box-sizing: border-box;}
+
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+ul {
+  list-style: none;
+}
+
+/*common*/
+html,body {
+  height: 100%;
+  line-height: 1.5;
+  overflow: hidden;
+}
+
+main {
+  padding-top: 10vh; 
+  height: calc(100% - 24vh)
+ }
+
+ #page-music {
+  height: 100%;
+ }
+
+.layout {
+  margin: 0 auto;
+  width: 600px;
+}
+
+@media (min-width: 700px) {
+  .layout {
+    width: 600px;
+  }
+}
+@media (min-width: 900px) {
+  .layout {
+    width: 800px;
+  }
+}
+@media (min-width: 1000px) {
+  .layout {
+    width: 900px;
+  }
+}
+@media (min-width: 1200px) {
+  .layout {
+    width: 1100px;
+  }
+}
+
+.aside {
+  float: left;
+}
+
+.aside>figure {
+  background: url(http://cloud.hunger-valley.com/music/public_tuijian_spring.jpg-big) center no-repeat;
+  background-size: cover;
+  height: 45vh;
+  width: 45vh;
+}
+
+.actions {
+  width: 45vh;
+  margin-top: 2vh;
+  text-align: center;
+}
+
+.actions>span {
+  float: left;
+  width: 33.3%;
+  font-size: 5vh;
+  color: rgba(255,255,255,0.4);
+  cursor: pointer;
+  transition: .4s color;
+}
+
+.actions>span:hover {
+  color: #fff;
+}
+
+.pg::before {
+  content: '';
+  position: absolute; 
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: rgba(0,0,0,0.4);
+}
+
+.pg {
+  background: url(http://cloud.hunger-valley.com/music/public_tuijian_spring.jpg-big) center center no-repeat;
+  position: absolute;
+  background-size: cover;
+  top: -5px;
+  bottom: -5px;
+  left: -5px;
+  right: -5px;
+/*  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;*/
+  z-index: -1;
+  filter: blur(4px);
+}
+
+.detail {
+  margin-left: 52vh;
+  color: #fff;
+}
+
+.detail .tag{
+  background-color: #2e6eec;
+  font-size: 2vh;
+  padding: .8vh 1vh;;
+}
+
+.detail h1{
+  font-size: 5vh;
+  margin-top: 2vh;
+}
+
+.songattr {
+  margin-top: 7vh;
+}
+
+.songattr>li {
+  float: left;
+  width: 33.3%;
+  font-size: 3vh;
+}
+
+.songattr span {
+  padding-right: 1vh;
+  font-size: 4vh;
+}
+
+.bar-area {
+  margin-top: 24vh;
+  height: .7vh;
+}
+
+.bar {
+  float: left;
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 93%;
+  height: .7vh;
+  border-radius: .2vh;
+  cursor: pointer;
+  position: relative;
+  margin: 7px 7px 7px 1px;
+/*  margin-top: 1.1px;
+  margin-bottom: 1.1px;
+  margin-right: 1vh;*/
+}
+
+.current-time {
+  float: left;
+  font-size: 1vh;
+}
+
+.bar-progress {
+  position: absolute;
+  width: 10%;
+  height: .7vh;
+  background-color: #fff;
+}
+
+.author {
+  float: left;
+  width: 100%;
+  font-size: 2vh;
+  margin-top: 2vh;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.lyric {
+  float: left;
+  width: 100%;
+  font-size: 3vh;
+  margin-top: 3vh;
+  color: rgba(255, 255, 255, 1);
+}
+
+footer {
+  height: 24vh;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+footer>.layout {
+  position: relative;
+}
+
+footer .iconfont {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 5vh;
+  top: 5vh;
+  font-weight: bold;
+  cursor: pointer;
+  transition: .4s all;
+  opacity: 0;
+}
+
+footer:hover .iconfont{
+  opacity: 1;
+}
+
+footer .iconfont:hover {
+  color: #fff;
+}
+
+footer .icon-zuo {
+  left: -8vh;
+}
+
+footer .icon-right {
+  right: -8vh;
+}
+
+.box {
+  position: relative;
+}
+
+.box>ul {
+ /* width: 5000px;*/
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  text-align: center;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 2vh;
+}
+
+.box li{
+  float: left;
+  width: 20vh;
+  margin: 2vh;
+}
+
+.box li:hover {
+  box-shadow: 0 0 .5vh .5vh rgba(255,255,255,0.8);
+}
+
+.cover {
+    height: 16vh;
+    background-size: cover;
+    background-position: center center;
+}
+
+/*icon*/
+
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1532936365027'); /* IE9*/
+  src: url('iconfont.eot?t=1532936365027#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff;charset=utf-8;base64,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') format('woff'),
+  url('iconfont.ttf?t=1532936365027') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('iconfont.svg?t=1532936365027#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-zuo:before { content: "\e604"; }
+
+.icon-erji:before { content: "\e652"; }
+
+.icon-like:before { content: "\e804"; }
+
+.icon-like1:before { content: "\e621"; }
+
+.icon-bofang:before { content: "\e609"; }
+
+.icon-xiayishou:before { content: "\e6a9"; }
+
+.icon-zanting:before { content: "\e805"; }
+
+.icon-right:before { content: "\e806"; }
