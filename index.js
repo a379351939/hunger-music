@@ -153,7 +153,6 @@ var Fm = {
   },
   playinit: function(){
     if(Object.keys(this.collections).length > 0) {
-      console.log('fuck')
       EventCenter.fire('select-albumn',{
         channelId: '0',
         channel_name: '我的最爱' 

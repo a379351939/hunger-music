@@ -135,7 +135,7 @@ main {
 }
 
 .songattr {
-  margin-top: 6vh;
+  margin-top: 9vh;
 }
 
 .songattr>li {
@@ -150,12 +150,13 @@ main {
 }
 
 .bar-area {
-  margin-top: 20vh;
+  display: flex;
+  margin-top: 25vh;
   height: .7vh;
 }
 
 .bar {
-  float: left;
+/*  float: left;*/
   background-color: rgba(255, 255, 255, 0.5);
   width: 93%;
   height: .7vh;
@@ -166,7 +167,7 @@ main {
 }
 
 .current-time {
-  float: left;
+/*  float: left;*/
   font-size: 1vh;
 }
 
@@ -178,15 +179,15 @@ main {
 }
 
 .author {
-  float: left;
+/*  float: left;*/
   width: 100%;
   font-size: 2vh;
-  margin-top: 2vh;
+  margin-top: 5vh;
   color: rgba(255, 255, 255, 0.6);
 }
 
 .lyric {
-  float: left;
+/*  float: left;*/
   width: 100%;
   font-size: 3vh;
   margin-top: 3vh;
