@@ -110,7 +110,7 @@ var footer = {
     })
   },
   getData: function(callback){
-    $.getJSON('//api.jirengu.com/fm/getChannels.php')
+    $.getJSON('//jirenguapi.applinzi.com/fm/getChannels.php')
       .done(function(ret){
         callback(ret)
       }).fail(function(){
