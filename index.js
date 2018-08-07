@@ -110,11 +110,8 @@ var footer = {
     })
   },
   getData: function(callback){
-    $.ajax({
-        url: 'http://api.jirengu.com/fm/getChannels.php',
-        type: 'GET',
-        dataType: 'jsonp'
-        }).done(function(ret){
+    $.getJSON('//api.jirengu.com/fm/getChannels.php')
+      .done(function(ret){
         callback(ret)
       }).fail(function(){
         console.log('数据错误')
@@ -221,34 +218,22 @@ var Fm = {
       _this.loadLyric()
       _this.setMusic()
     }else{
-      $.ajax({
-        url: 'http://jirenguapi.applinzi.com/fm/getSong.php',
-        type: 'GET',
-        data: {
-          channel:this.channelId
-        },
-        dataType: 'jsonp'
-        }).done(function(ret){
-          clearInterval(_this.clock)
-          console.log(ret.song[0])
-          _this.song = ret.song[0]
-          _this.loadLyric()
-          _this.setMusic()
-        }).fail(function(){
-          console.log('数据错误')
-        })
+      $.getJSON('//jirenguapi.applinzi.com/fm/getSong.php',{channel:this.channelId})
+      .done(function(ret){
+        clearInterval(_this.clock)
+        console.log(ret.song[0])
+        _this.song = ret.song[0]
+        _this.loadLyric()
+        _this.setMusic()
+      }).fail(function(){
+        console.log('数据错误')
+      })
     }
   },
   loadLyric:function(){
     var _this = this
-    $.ajax({
-        url: 'http://jirenguapi.applinzi.com/fm/getLyric.php',
-        type: 'GET',
-        data: {
-          sid:_this.song.sid
-        },
-        dataType: 'json'
-        }).done(function(ret){
+    $.getJSON('//jirenguapi.applinzi.com/fm/getLyric.php',{sid:_this.song.sid})
+      .done(function(ret){
         _this.lyricObj = {}
         var lyric = {}
         ret.lyric.split('\n').forEach(function(line){
@@ -302,6 +287,9 @@ var Fm = {
   },
   saveToLocal: function(){
     localStorage['collections'] = JSON.stringify(this.collections)
+  },
+  loadCollection: function(){
+
   }
 }
 
