@@ -113,7 +113,7 @@ var footer = {
     $.ajax({
         url: 'http://api.jirengu.com/fm/getChannels.php',
         type: 'GET',
-        dataType: 'json'
+        dataType: 'jsonp'
         }).done(function(ret){
         callback(ret)
       }).fail(function(){
@@ -227,7 +227,7 @@ var Fm = {
         data: {
           channel:this.channelId
         },
-        dataType: 'json'
+        dataType: 'jsonp'
         }).done(function(ret){
           clearInterval(_this.clock)
           console.log(ret.song[0])
