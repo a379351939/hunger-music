@@ -147,6 +147,7 @@ var Fm = {
     this.$btnnext = $('.icon-xiayishou')
     this.$curtime = $('.current-time')
     this.$lyric = $('.lyric>p')
+    this.haslyr = true
     this.collections = this.loadFromLocal()
     this.bind()
     this.playinit()
@@ -233,6 +234,7 @@ var Fm = {
     var _this = this
     $.getJSON('//jirenguapi.applinzi.com/fm/getLyric.php',{sid:_this.song.sid})
       .done(function(ret){
+        _this.haslyr = true
         _this.lyricObj = {}
         var lyric = {}
         ret.lyric.split('\n').forEach(function(line){
@@ -246,6 +248,7 @@ var Fm = {
           _this.lyric = lyric
         })
       }).fail(function(){
+        _this.haslyr = false
         console.log('歌词数据错误')
       })
   },
@@ -276,10 +279,15 @@ var Fm = {
     this.$progress.css({
       width: percent *100 + '%'
     })
-    if(this.lyric['0' + min + ':' + sec] != undefined) {
-      _this.$lyric.text(_this.lyric['0' + min + ':' + sec])
-      .boomText('fadeIn')
+    if(this.haslyr){
+      if(this.lyric['0' + min + ':' + sec] != undefined) {
+        _this.$lyric.text(_this.lyric['0' + min + ':' + sec])
+        .boomText('fadeIn')
+      }
+    }else{
+      _this.$lyric.text('暂无歌词')
     }
+
   },
   loadFromLocal: function(){
     return JSON.parse(localStorage['collections'] || '{}')
@@ -287,9 +295,6 @@ var Fm = {
   saveToLocal: function(){
     localStorage['collections'] = JSON.stringify(this.collections)
   },
-  loadCollection: function(){
-
-  }
 }
 
   $.fn.boomText = function(type) {
